@@ -26,6 +26,7 @@ ANALYTICSID = False  # "UA-34045230-1"
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
+            (r"/", WebHandler),
             (r"/test", Handler),
         ]
         settings = dict(
@@ -37,6 +38,9 @@ class Application(tornado.web.Application):
         )
         tornado.web.Application.__init__(self, handlers, **settings)
 
+class WebHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("main.html")
 
 class Handler(tornado.web.RequestHandler):
     def get(self):

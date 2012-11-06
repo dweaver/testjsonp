@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="application/javascript"></script>
+    </head>
+    <body>
+        <h1>Test</h1>
+        <script>
+            $.ajax(
+                // Note: must set Access-Control-Allow-Origin to support
+                // cross site request.
+                {url: "http://testclu.herokuapp.com/dash/sensors/demo"}
+                ).done(function (data) {
+                    if(console && console.log) {
+                        console.log(data);
+                        alert("Done!");
+                    }});
+        </script>
+    </body>
+</html>
